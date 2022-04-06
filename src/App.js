@@ -3,18 +3,35 @@ import React, { useState } from 'react'
 const App = () => {
   const [inputs,setInputs] =useState()
   const [fullName,setfullName] = useState()
+  const [lastName, setLastName ] = useState()
+  const [newLast , setNewLast ] = useState()
+
+
   const inputEvent = (event) => {
     setInputs(event.target.value)
   }
 
-   const onSubmit = () => {
+  const inputEvent2 = (event) => {
+    setLastName(event.target.value)
+  }
+
+   const onSubmit = (e) => {
+     e.preventDefault()
      setfullName(inputs)
+     setNewLast(lastName)
    }
   return (
     <>
-    <h1>Hello {fullName}</h1>
+      <form onSubmit={onSubmit}>
+        <div>
+    <h1>Hello {fullName} {newLast}</h1>
     <input type="text" placeholder='Enter Your Name' onChange={inputEvent} value={inputs}/>
-    <button onClick={onSubmit }>Click Me</button>
+    <br />
+    <input type="text" placeholder='Enter Your Last Name' onChange={inputEvent2} value={ lastName } />
+    <button type='submit'>Click Me</button>
+    </div>
+    </form>
+   
     </>
   )
 }

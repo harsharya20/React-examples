@@ -48,7 +48,7 @@ button {
 }
 
 div{
-  width: 100%;
+  width: 100vw;
   height: 100vh;
   background: #8e44ad;
   display: flex;
@@ -64,7 +64,8 @@ h1{
 }
 
 input{
-  width: 50%;
+  width: 40%;
+  height: 8%;
   padding: 10px 20px;
   border: none;
   outline: none;
