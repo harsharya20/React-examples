@@ -4,13 +4,14 @@ const App = () => {
   const [fullName, setFullName] =useState({
     fname: '',
     lname: '',
+    email: '',
+    phone: ''
   });
   
 
 
   const inputEvent = (event) => {
-   const value = event.target.value;
-   const name = event.target.name;
+  const {value, name } = event.target;
 
    setFullName((prevValue) => {
 
@@ -18,11 +19,31 @@ const App = () => {
       return{
       fname: value,
       lname: prevValue.lname,
+      email: prevValue.email,
+      phone: prevValue.phone
+
       }
     }else if(name === 'lName'){
       return{
       fname: prevValue.fname,
       lname: value,
+      email: prevValue.email,
+      phone: prevValue.phone
+      }
+    }else if(name === 'email'){
+      return{
+      fname: prevValue.fname,
+      lname:prevValue.lname ,
+      email: value,
+      phone: prevValue.phone
+      }
+    }
+    else if(name === 'phone'){
+      return{
+      fname: prevValue.fname,
+      lname: prevValue.lname,
+      email: prevValue.email,
+      phone: value
       }
     }
     })
@@ -38,9 +59,15 @@ const App = () => {
       <form onSubmit={onSubmit}>
         <div>
     <h1>Hello {fullName.fname} {fullName.lname}</h1>
+    <p>{fullName.email}</p>
+    <p>{fullName.phone}</p>
     <input type="text" placeholder='Enter Your Name' name= 'fName' onChange={inputEvent} value={fullName.fname}/>
     <br />
     <input type="text" placeholder='Enter Your Last Name' name= 'lName' onChange={inputEvent} value={fullName.lname}/>
+    <br />
+    <input type="email" placeholder='Enter Your Email' name= 'email' onChange={inputEvent} value={fullName.email} autoComplete='off'/>
+    
+    <input type="number" placeholder='Enter Your Phone Number' name= 'phone' onChange={inputEvent} value={fullName.phone}/>
     <button type='submit'>Click Me</button>
     </div>
     </form>
