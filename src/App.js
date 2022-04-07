@@ -15,37 +15,43 @@ const App = () => {
 
    setFullName((prevValue) => {
 
-    if(name === 'fName'){
-      return{
-      fname: value,
-      lname: prevValue.lname,
-      email: prevValue.email,
-      phone: prevValue.phone
+    return{
 
-      }
-    }else if(name === 'lName'){
-      return{
-      fname: prevValue.fname,
-      lname: value,
-      email: prevValue.email,
-      phone: prevValue.phone
-      }
-    }else if(name === 'email'){
-      return{
-      fname: prevValue.fname,
-      lname:prevValue.lname ,
-      email: value,
-      phone: prevValue.phone
-      }
+      ...prevValue,
+      [name]: value
     }
-    else if(name === 'phone'){
-      return{
-      fname: prevValue.fname,
-      lname: prevValue.lname,
-      email: prevValue.email,
-      phone: value
-      }
-    }
+
+    // if(name === 'fName'){
+    //   return{
+    //   fname: value,
+    //   lname: prevValue.lname,
+    //   email: prevValue.email,
+    //   phone: prevValue.phone
+
+    //   }
+    // }else if(name === 'lName'){
+    //   return{
+    //   fname: prevValue.fname,
+    //   lname: value,
+    //   email: prevValue.email,
+    //   phone: prevValue.phone
+    //   }
+    // }else if(name === 'email'){
+    //   return{
+    //   fname: prevValue.fname,
+    //   lname:prevValue.lname ,
+    //   email: value,
+    //   phone: prevValue.phone
+    //   }
+    // }
+    // else if(name === 'phone'){
+    //   return{
+    //   fname: prevValue.fname,
+    //   lname: prevValue.lname,
+    //   email: prevValue.email,
+    //   phone: value
+    //   }
+   // }
     })
   }
 
@@ -61,9 +67,9 @@ const App = () => {
     <h1>Hello {fullName.fname} {fullName.lname}</h1>
     <p>{fullName.email}</p>
     <p>{fullName.phone}</p>
-    <input type="text" placeholder='Enter Your Name' name= 'fName' onChange={inputEvent} value={fullName.fname}/>
+    <input type="text" placeholder='Enter Your Name' name= 'fname' onChange={inputEvent} value={fullName.fname}/>
     <br />
-    <input type="text" placeholder='Enter Your Last Name' name= 'lName' onChange={inputEvent} value={fullName.lname}/>
+    <input type="text" placeholder='Enter Your Last Name' name= 'lname' onChange={inputEvent} value={fullName.lname}/>
     <br />
     <input type="email" placeholder='Enter Your Email' name= 'email' onChange={inputEvent} value={fullName.email} autoComplete='off'/>
     
